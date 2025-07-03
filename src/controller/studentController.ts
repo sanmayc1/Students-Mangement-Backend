@@ -1,4 +1,3 @@
-import { Types } from "mongoose";
 import Students from "../model/studentSchema";
 import { StudentTypes, Status } from "../types";
 
@@ -74,7 +73,7 @@ class StudentService {
     }
   }
 
-  async deleteStudent(id: Types.ObjectId): Promise<Status> {
+  async deleteStudent(id: string): Promise<Status> {
     try {
       await Students.findByIdAndDelete(id);
       return { message: "Student Deleted", success: true, StatusCode: 200 };

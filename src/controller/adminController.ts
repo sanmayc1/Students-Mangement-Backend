@@ -6,6 +6,7 @@ class AdminService {
 
   async createStudent(req: Request, res: Response): Promise<void> {
     try {
+        
       const response = await this.student.createNewStudent(req.body.student);
       res.status(response.StatusCode).json(response);
     } catch (error) {
@@ -26,7 +27,7 @@ class AdminService {
 
   async deleteStudent(req: Request, res: Response): Promise<void> {
     try {
-      const response = await this.student.deleteStudent(req.body.studentId);
+      const response = await this.student.deleteStudent(req.params.id);
       res.status(response.StatusCode).json(response);
     } catch (error) {
       console.log(error);
